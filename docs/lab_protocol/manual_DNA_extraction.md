@@ -1,14 +1,15 @@
 ## 物资列表
 |物资|数量|
-|Proteinase K||
-|Buffer GA 1||
-|Buffer GA 2||
-|无水乙醇||
-|Buffer GW 1||
-|Buffer GW 2||
-|Buffer TE||
-|吸附柱||
-|收集管||
+|:---|:--:|
+|Proteinase K|N|
+|Buffer GA 1|N|
+|Buffer GA 2|N|
+|无水乙醇|N|
+|Buffer GW 1|N|
+|Buffer GW 2|N|
+|Buffer TE|N|
+|吸附柱|N|
+|收集管|N|
 
 ## 实验步骤
 1. 向离心管加入 20 μL Proteinase K 溶液

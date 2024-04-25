@@ -1,0 +1,124 @@
+site_name: '工作笔记'
+site_description: '杭州市疾控中心测序实验室'
+site_author: 'fx'
+site_url: 'https://fx949494fx.github.io/CNCD/'
+theme:
+  name: 'material'
+  palette:
+    scheme: default
+    primary: 'indigo'
+  features:
+    - navigation.tabs
+    - navigation.sections
+  custom_dir: overrides
+
+extra:
+  palette:
+    primary: 'blue'
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+nav:
+  - '首页': index.md
+  - '软件环境配置':
+  - '专项教程':
+    - '命令行工具下载基因组数据':
+      - '01. 简介': tutorial/CML-download/01_start.md
+      - '02. 下载Assembly': tutorial/CML-download/02_assembly.md
+    - '新冠病毒分析平台':
+      - '01. nextclade': tutorial/nCov/01_nextclade.md
+      - '02. nextstrain': tutorial/nCov/02_nextstrain.md
+    - 'Linux入门':
+      - '01. Linux 安装示例': tutorial/Linux/01_linux-installation.md
+      - '02. Linux 基本命令': tutorial/Linux/02_basic-cml.md
+      - '03. Linux 软件管理': tutorial/Linux/03_linux-software.md
+      - '04. awk 列处理工具': tutorial/Linux/04_awk.md
+      - '05. sed 行处理工具': tutorial/Linux/05_sed.md
+      - '06. 其他命令行工具': tutorial/Linux/06_tools.md
+      - '07. vim': tutorial/Linux/07_vim.md
+    - '常用编程语言':
+      - '01. Shell 脚本': tutorial/Programming/01_shell.md
+      - '02. Perl 编程': tutorial/Programming/02_perl.md
+      - '03. Python 编程': tutorial/Programming/03_python.md
+      - '04. Biopython 编程': tutorial/Programming/04_biopython.md
+      - '05. R 编程': tutorial/Programming/05_r.md
+    - '数据文件格式':
+      - '01. fasta': tutorial/Format/01_fasta.md
+      - '02. embl': tutorial/Format/02_embl.md
+      - '03. fastq': tutorial/Format/05_fastq.md
+      - '04. gcg': tutorial/Format/04_gcg.md
+      - '05. sam': tutorial/Format/05_sam.md
+      - '06. bam': tutorial/Format/06_bam.md
+      - '07. bed': tutorial/Format/07_bed.md
+      - '08. vcf': tutorial/Format/08_vcf.md
+      - '09. gff': tutorial/Format/09_gff.md
+      - '10. cram': tutorial/Format/10_cram.md
+  - '数据整理分析':
+    - 'Excel': 
+    - 'Python': 
+    - 'R':
+    - 'Linux':
+  - '工作规范指南':
+  
+use_directory_urls: true
+
+extra_javascript:
+  #- https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.6/sequence-diagram-min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js
+  - assets/js/umlconvert.js
+
+markdown_extensions:
+  - codehilite
+  - admonition
+  - footnotes
+  - meta
+  - attr_list
+  - md_in_html
+  - tables
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.details
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.keys
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.progressbar
+
+#google_analytics: ['UA-55420348-3', 'auto']
+
+plugins:
+  - search
+  - git-authors
+  - git-revision-date
+  - macros

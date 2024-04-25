@@ -2,6 +2,7 @@
 记录工作中需要用到的软件配置、代码、实验流程、规范和指南
 ## 首页-目录
 - 工作环境搭建
+  - [在Linux中安装显卡驱动、CUDA、cuDNN](work_env/Ubuntu_install_Nvidia_CUDA.md)
 - 统计分析理论
 - 实验操作手册
   - DNA提取

@@ -1,5 +1,5 @@
 site_name: '工作笔记'
-site_description: '杭州市疾控中心测序实验室'
+site_description: '记录工作中的各种需求'
 site_author: 'fx'
 site_url: 'https://fx949494fx.github.io/CNCD/'
 theme:
@@ -21,39 +21,15 @@ extra_css:
 
 nav:
   - '首页': index.md
-  - '软件环境配置':
-  - '专项教程':
-    - '命令行工具下载基因组数据':
-      - '01. 简介': tutorial/CML-download/01_start.md
-      - '02. 下载Assembly': tutorial/CML-download/02_assembly.md
-    - '新冠病毒分析平台':
-      - '01. nextclade': tutorial/nCov/01_nextclade.md
-      - '02. nextstrain': tutorial/nCov/02_nextstrain.md
-    - 'Linux入门':
-      - '01. Linux 安装示例': tutorial/Linux/01_linux-installation.md
-      - '02. Linux 基本命令': tutorial/Linux/02_basic-cml.md
-      - '03. Linux 软件管理': tutorial/Linux/03_linux-software.md
-      - '04. awk 列处理工具': tutorial/Linux/04_awk.md
-      - '05. sed 行处理工具': tutorial/Linux/05_sed.md
-      - '06. 其他命令行工具': tutorial/Linux/06_tools.md
-      - '07. vim': tutorial/Linux/07_vim.md
-    - '常用编程语言':
-      - '01. Shell 脚本': tutorial/Programming/01_shell.md
-      - '02. Perl 编程': tutorial/Programming/02_perl.md
-      - '03. Python 编程': tutorial/Programming/03_python.md
-      - '04. Biopython 编程': tutorial/Programming/04_biopython.md
-      - '05. R 编程': tutorial/Programming/05_r.md
-    - '数据文件格式':
-      - '01. fasta': tutorial/Format/01_fasta.md
-      - '02. embl': tutorial/Format/02_embl.md
-      - '03. fastq': tutorial/Format/05_fastq.md
-      - '04. gcg': tutorial/Format/04_gcg.md
-      - '05. sam': tutorial/Format/05_sam.md
-      - '06. bam': tutorial/Format/06_bam.md
-      - '07. bed': tutorial/Format/07_bed.md
-      - '08. vcf': tutorial/Format/08_vcf.md
-      - '09. gff': tutorial/Format/09_gff.md
-      - '10. cram': tutorial/Format/10_cram.md
+  - '工作环境搭建':
+  - '统计分析理论':
+  - '实验操作手册':
+    - 'DNA提取与纯化':
+      - '手工提取': 
+      - '全自动核酸提取仪': 
+      - 'DNA纯化':
+    - 'PCR':
+    - 'ONT测序':
   - '数据整理分析':
     - 'Excel': 
     - 'Python': 

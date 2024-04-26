@@ -44,3 +44,8 @@ export LD_LIBRARY_PATH=/usr/local/cuda-XXX/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY
 ```
 5. 退出编辑器后，`source ~/.bashrc`更新文件。
 6. `nvcc -V`检查是否安装成功。
+
+### 安装cuDNN
+1. 在NVIDIA官网的[cuDNN页面](https://developer.nvidia.com/cudnn-downloads)下载安装包。根据自己的系统选择相应的安装包。
+2. 根据页面提示的代码，复制到本地运行。
+3. 安装结束后检查是否安装成功`cat /usr/include/cudnn_version.h | grep CUDNN_MAJOR -A 2`。注意：'/usr/include/cudnn_version.h'的位置可能有所不同，根据安装信息提示的地址修改，或者使用`find / -name "cudnn_version.h`查询安装地址。

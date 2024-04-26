@@ -1,5 +1,5 @@
 # ONT的fast5转fastq
-1. 使用官方[guppy](/work_env/bioinfo_software.md)进行数据转换。
+1. 使用官方[guppy](work_env/bioinfo_software.md)进行数据转换。
 2. 使用`guppy_basecaller -h`查看'guppy_basecaller'的帮助文档。
 3. 可以使用配置文件'config file'的方法进行转换：
    `guppy_basecaller -i <input path> -s <save path> -c <config file> [options]`

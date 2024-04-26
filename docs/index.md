@@ -21,7 +21,7 @@ layout: default
   - Excel
   - Python
   - R
-  - [Linux]()
+  - [Linux](basic_data_analysis/Linux.md)
 - 专题教程
   - 横断面研究分析
   - 病例对照研究分析

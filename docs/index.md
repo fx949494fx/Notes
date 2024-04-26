@@ -3,6 +3,7 @@
 ## 首页-目录
 - 工作环境搭建
   - [在Linux中安装显卡驱动、CUDA、cuDNN](work_env/Ubuntu_install_Nvidia_CUDA.md)
+  - 在Windows中安装CUDA
 - 统计分析理论
 - 实验操作手册
   - DNA提取
@@ -10,4 +11,8 @@
   - PCR
   - ONT测序
 - 数据整理分析
+  - Excel
+  - Python
+  - R
+  - Linux
 - 工作规范指南

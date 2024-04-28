@@ -10,18 +10,19 @@ layout: default
   - 在Windows中安装CUDA
   - [安装Python和R](work_env/Python_R_install.md)
   - [安装生信分析软件](work_env/bioinfo_software.md)
-- 统计分析理论
+- 统计理论和基本技能
+  - 统计分析理论
+  - 数据分析技能
+    - Excel
+    - [Python](basic_data_analysis/Python.md)
+    - R
+    - [Linux](basic_data_analysis/Linux.md)
 - 实验操作手册
   - 基因模版制备
     - [手工提取DNA](lab_protocol/manual_DNA_extraction.md)
     - DNA纯化
   - PCR
   - ONT测序
-- 数据分析基本操作
-  - Excel
-  - Python
-  - R
-  - [Linux](basic_data_analysis/Linux.md)
 - 专题教程
   - 横断面研究分析
   - 病例对照研究分析

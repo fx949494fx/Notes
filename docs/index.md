@@ -23,6 +23,7 @@ layout: default
     - DNA纯化
   - PCR
   - ONT测序
+    - [多样本混合成单样本的连接法测序](ONT_logation_sequencing.md)
 - 专题教程
   - 横断面研究分析
   - 病例对照研究分析

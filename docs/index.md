@@ -15,7 +15,7 @@ layout: default
   - 数据分析技能
     - Excel
     - [Python](basic_data_analysis/Python.md)
-    - R
+    - [R](basic_data_analysis/R.md)
     - [Linux](basic_data_analysis/Linux.md)
 - 实验操作手册
   - 基因模版制备

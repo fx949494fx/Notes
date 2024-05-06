@@ -31,4 +31,12 @@ layout: default
   - 队列数据分析
   - 生信分析
     - [数据格式和转换](bioinfo_analysis/data_trans.md)
-- 工作规范指南
+    - [GWAS](bioinfo_analysis/GWAS.md)
+- [工作规范指南](guideline/guideline_catalogs.md)
+  - 心血管病
+  - 癌症
+  - 呼吸系统疾病
+  - 高血压
+  - 糖尿病
+  - 血脂异常
+  - 其他

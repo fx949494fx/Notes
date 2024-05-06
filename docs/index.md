@@ -25,9 +25,10 @@ layout: default
   - ONT测序
     - [多样本混合的连接法测序](lab_protocol/ONT_logation_sequencing.md)
 - 专题教程
-  - 横断面研究分析
-  - 病例对照研究分析
-  - 队列研究分析
+  - 监测数据分析 
+  - 横断面数据分析
+  - 病例对照数据分析
+  - 队列数据分析
   - 生信分析
     - [数据格式和转换](bioinfo_analysis/data_trans.md)
 - 工作规范指南

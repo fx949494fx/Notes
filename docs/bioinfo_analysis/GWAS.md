@@ -1,4 +1,4 @@
-基本分析流程如下：
+数据质控流程：
 ```bash
 # 更新表型数据并转二进制
 plink --file TOP --pheno phenotype.txt --make-bed --out data
@@ -27,3 +27,8 @@ plink --bfile data_hwe --extract data_ld.prune.in --make-bed --out data_pruned
 # 进行关联分析
 plink --bfile data_pruned --pheno phenotype.txt --assoc --adjust --out gwas_results
 ```
+
+### 参考资料
+- [Plink官网](https://www.cog-genomics.org/plink/1.9/)
+- [全基因组关联分析学习资料（GWAS tutorial）20210313更新版](https://www.cnblogs.com/chenwenyan/p/11803311.html)
+- [GWASLab](https://gwaslab.org/blog/)

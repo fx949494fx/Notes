@@ -1,3 +1,11 @@
+# Python的基础教程
+网络上非常多有关教程，百度后任选其一完成即可。  
+例如：
+- [廖雪峰的Python教程](https://www.liaoxuefeng.com/wiki/1016959663602400)
+- [菜鸟的Python教程](https://www.runoob.com/python/python-tutorial.html)  
+
+当然，学会看[官方文档](https://docs.python.org/zh-cn/3/)也很重要
+
 # 身份证号的处理
 ### 对身份证号的格式。  
 处理包括删除特殊符号，去除空值重复值，X大小写对齐。

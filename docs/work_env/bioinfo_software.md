@@ -9,7 +9,8 @@
 # 在Ubuntu上安装Plink
 1. 在[Plink官网](https://www.cog-genomics.org/plink/1.9/)选择对应版本，复制下载链接。
 2. 首先下载压缩包`wget https://s3.amazonaws.com/plink1-assets/plink_linux_x86_64_20231211.zip`。
-3. 解压`unzip plink_linux_x86_64_20231211.zip -d /usr/local`。
-4. `vim ~/.bashrc`,在文件末尾加上`export PATH=/usr/local/plink`。
-5. `suorce ~/.bashrc`
-6. `plink`检查是否安装安装成功。
+3. 新建文件夹`sudo mkdir /usr/local/plink`。当然也可以建立在登录账号的目录下，使用起来更方便。
+4. 解压`sudo unzip plink_linux_x86_64_20231211.zip -d /usr/local/plink/`。
+5. `vim ~/.bashrc`,在文件末尾加上`export PATH=$PATH:/usr/local/plink/`。
+6. `suorce ~/.bashrc`
+7. `plink --version`检查是否安装安装成功。

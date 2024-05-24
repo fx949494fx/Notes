@@ -27,7 +27,7 @@ links = [
     # 添加更多链接...
 ]
 ```
-##### Nodes的设置
+#### Nodes的设置
 在Plotly中设置节点，你需要定义一个包含所有节点信息的列表，并在创建桑基图时传递给`go.Sankey`函数。
 ```python
 # 导入plotly
@@ -43,7 +43,7 @@ sankey_data = go.Sankey(
     )
 )
 ```
-##### Links的设置
+#### Links的设置
 设置链接时，需要定义一个包含所有链接信息的列表，并在创建桑基图时传递给`go.Sankey`函数。
 ```python
 # 设置links信息
@@ -55,7 +55,7 @@ sankey_data.add(
     )
 )
 ```
-##### 桑基图的绘制
+#### 桑基图的绘制
 将节点和链接信息设置好后，可以使用Plotly的`layout`和`show`方法来绘制桑基图。
 ```python
 fig = go.Figure(data=sankey_data)

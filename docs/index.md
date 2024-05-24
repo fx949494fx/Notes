@@ -17,6 +17,7 @@ layout: default
     - [Python](basic_data_analysis/Python.md)
     - [R](basic_data_analysis/R.md)
     - [Linux](basic_data_analysis/Linux.md)
+  - [数据可视化](basic_data_analysis/data_visualization.md)
 - 实验操作手册
   - 基因模版制备
     - [手工提取DNA](lab_protocol/manual_DNA_extraction.md)
@@ -32,6 +33,7 @@ layout: default
   - 生信分析
     - [数据格式和转换](bioinfo_analysis/data_trans.md)
     - [GWAS](bioinfo_analysis/GWAS.md)
+    - [基于ONT的靶向测序数据分析](bioinfo_analysis/ONT_target_seq.md)
 - [工作规范指南](guideline/guideline_catalogs.md)
   - 心血管病
   - 癌症

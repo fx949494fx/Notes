@@ -1,6 +1,6 @@
 ### 桑基图（Sankey）
 #### 使用Python Plotly绘制桑基图教程
-桑基图（Sankey Diagram）是一种用于表示数据流的图表，它显示了不同实体之间的能量、材料、成本或其他资源的流动。Plotly是一个交互式图表库，支持多种编程语言，包括Python。
+桑基图（Sankey Diagram）是一种用于表示数据流的图表，可以用来展示队列研究中的对象从入组到结局的状态变化。
 #### 安装Plotly
 在开始之前，请确保已经安装了Plotly库。如果尚未安装，可以通过以下命令进行安装：
 ```bash
@@ -9,7 +9,7 @@ pip install plotly
 #### 适用于绘制桑基图的数据格式
 桑基图需要特定的数据格式，主要包括两个部分：节点（nodes）和链接（links）。
 ##### 节点（Nodes）
-节点是桑基图中的实体，例如不同的部门、国家或过程。节点通常以列表的形式给出，每个节点包含一个唯一的标识符。
+节点是桑基图中的实体，例如不同的时期、状态。节点通常以列表的形式给出，每个节点包含一个唯一的标识符。
 ```python
 nodes = [
     {'label': 'Node1', 'group': 1},
@@ -19,7 +19,7 @@ nodes = [
 ]
 ```
 ##### 链接（Links）
-链接表示节点之间的流动，通常以列表的形式给出，每个链接包含源节点、目标节点和流量值。
+链接表示对象在节点之间的流动，通常以列表的形式给出，每个链接包含源节点、目标节点和流量值。
 ```python
 links = [
     {'source': 'Node1', 'target': 'Node2', 'value': 10},
@@ -35,11 +35,8 @@ import plotly.graph_objects as go
 # 设置nodes信息
 sankey_data = go.Sankey(
     node=dict(
-        pad=15,
-        thickness=20,
         line=dict(color="black", width=0.5),
         label=[n['label'] for n in nodes],  # 节点标签
-        color="blue"  # 节点颜色
     )
 )
 ```

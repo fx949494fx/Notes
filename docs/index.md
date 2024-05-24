@@ -17,7 +17,7 @@ layout: default
     - [Python](basic_data_analysis/Python.md)
     - [R](basic_data_analysis/R.md)
     - [Linux](basic_data_analysis/Linux.md)
-  - [数据可视化](basic_data_analysis/data_visualization.md)
+  - [数据可视化](data_visualization.md)
 - 实验操作手册
   - 基因模版制备
     - [手工提取DNA](lab_protocol/manual_DNA_extraction.md)

@@ -11,9 +11,9 @@ layout: default
   - [安装Python和R](work_env/Python_R_install.md)
   - [安装生信分析软件](work_env/bioinfo_software.md)
 - 统计理论和基本技能
-  - 统计分析理论
+  - [统计分析理论](basic_data_analysis/statistical_theory.md)
   - 数据分析技能
-    - Excel
+    - [Excel](basic_data_analysis/Excel.md)
     - [Python](basic_data_analysis/Python.md)
     - [R](basic_data_analysis/R.md)
     - [Linux](basic_data_analysis/Linux.md)
@@ -29,7 +29,7 @@ layout: default
   - 监测数据分析 
   - 横断面数据分析
   - 病例对照数据分析
-  - 队列数据分析
+  - [队列数据分析](cohort_study_data.md)
   - 生信分析
     - [数据格式和转换](bioinfo_analysis/data_trans.md)
     - [GWAS](bioinfo_analysis/GWAS.md)

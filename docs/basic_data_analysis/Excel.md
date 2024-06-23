@@ -24,9 +24,9 @@
 ```excel
 =IF(MOD(MID(A2,17,1),2)=0,"女","男")
 ```
-- [`MID(A2, 17, 1)`](#mid): 从单元格`A2`中的第17个字符开始，提取1个字符。根据身份证编码规则，这一位数字用于指示性别。
-- [`MOD(number, divisor)`](#mod): `MOD`函数用于计算两个数相除的余数。此处用于判断第17位数字除以2的余数。
-- [`IF(condition, value_if_true, value_if_false)`](#if): 如果条件（`condition`）为真，返回`value_if_true`；否则返回`value_if_false`。
+- [`MID(A2, 17, 1)`](#midtext-start_num-num_chars): 从单元格`A2`中的第17个字符开始，提取1个字符。根据身份证编码规则，这一位数字用于指示性别。
+- [`MOD(number, divisor)`](#modnumber-divisor): `MOD`函数用于计算两个数相除的余数。此处用于判断第17位数字除以2的余数。
+- [`IF(condition, value_if_true, value_if_false)`](#ifcondition-value_if_true-value_if_false): 如果条件（`condition`）为真，返回`value_if_true`；否则返回`value_if_false`。
   - **条件**: `MOD(MID(A2,17,1),2)=0` 判断提取的数字是否为偶数（女性）。
   - **value_if_true**: "女" - 如果条件为真，表示性别为女。
   - **value_if_true**: "男" - 如果条件为假，表示性别为男。
@@ -38,17 +38,17 @@
 =IFERROR(TEXT(A2,"yyyy/mm/dd hh:MM:ss"),A2)
 第二步使用功能：分列-日期-YMD
 ```
-- [`TEXT(A2, "yyyy/mm/dd hh:MM:ss")`](#text): 尝试将单元格A2中的值按照"yyyy/mm/dd hh:MM:ss"的格式（年/月/日 时:分:秒）转换为文本。
-- [`IFERROR(...)`](#iferror): 如果TEXT函数的转换操作出错（比如A2中的内容不是有效的日期或时间），则返回A2单元格的原始内容。
+- [`TEXT(A2, "yyyy/mm/dd hh:MM:ss")`](#textvalue-format_text): 尝试将单元格A2中的值按照"yyyy/mm/dd hh:MM:ss"的格式（年/月/日 时:分:秒）转换为文本。
+- [`IFERROR(...)`](#iferrorvalue-value_if_error): 如果TEXT函数的转换操作出错（比如A2中的内容不是有效的日期或时间），则返回A2单元格的原始内容。
 
 ### 从地区编码中提取地区信息的流程
-使用Excel函数XLOOKUP, VALUE, 和LEFT，可以分步从地区编码中提取出乡镇街道、县区、地级市的中文名称。这一过程涉及多个文件和数据列的交叉引用，确保精确匹配和转换。
+使用Excel函数XLOOKUP, VALUE, 和LEFT，可以分步从地区编码中提取出乡镇街道、县区、地级市的中文名称。
 ```excel
-提取乡镇街道中文
+# 提取乡镇街道中文
 =XLOOKUP(A2, '[地区编码对照表.xlsx]地区信息'!$A:$A, '[地区编码对照表.xlsx]地区信息'!$B:$B, "")
-提取县区街道中文
+# 提取县区街道中文
 =XLOOKUP(VALUE(LEFT(A2,6)), '[地区编码对照表.xlsx]地区信息'!$K:$K, '[地区编码对照表.xlsx]地区信息'!$L:$L, "")
-提取地级市中文
+# 提取地级市中文
 =XLOOKUP(VALUE(LEFT(A2,4)), '[地区编码对照表.xlsx]地区信息'!$M:$M, '[地区编码对照表.xlsx]地区信息'!$N:$N, "")
 ```
 - A2: 单元格A2中包含地区9位完整编码。
@@ -56,6 +56,21 @@
 - [`LEFT`](#left)从完整地区编码中提取前6位，通常这6位代表地级市级别的编码。
 - [`VALUE`](#value)将字符转换为数值，以便和《地区编码对照表》中的编码格式一致。
 
+### 中文地址进行省市县乡四级地址分词的流程
+使用Excel的INDEX, MATCH, ISNUMBER, FIND 和 IF 函数组合，可以从不规则的中文地址中有效地提取省、市、县和乡镇四级地址信息。分词的顺序是先正向从省级-市级-县级-乡镇，然后再利用已有的信息反向查找，从乡镇-县级-市级-省级，最后把同级地址合并到一起。
+```excel
+# 正向查找省级关键词
+=INDEX('[地区编码对照表.xlsx]地区信息'!$O:$O, MATCH(TRUE, ISNUMBER(FIND('[地区编码对照表.xlsx]地区信息'!$O:$O, $A2)), 0))
+# 反向利用市级地址查找省级关键词
+=INDEX('[地区编码对照表.xlsx]地区信息'!$O:$O, MATCH(TRUE, ISNUMBER(FIND('[地区编码对照表.xlsx]地区信息'!$N:$N, $G2)), 0))
+# 然后将正反向的同级地址组合在一起
+=IF(B2=0, H2, B2)
+```
+- [`FIND`]:在《地区编码对照表》中 A2（中文地址）或 G2（市级地址） 中搜索省级关键词，如果找到，则返回其位置，否则返回错误。
+- [`ISNUMBER`]: 随后检查 FIND 的输出是否为数值（即是否成功找到关键词），从而为 MATCH 函数提供逻辑测试。
+- [`MATCH`]：判断ISNUMBER是否返回了TRUE，即使用FIND是否在A2或G2中发现包含省级关键词，0为精确匹配。
+- [`INDEX`]：MATCH到的行号对应的省级关键词。
+- [`IF`]：如果正向的B2单元格的值为0，则取反向的H2单元格的值；否则，直接使用正向的B2单元格的值。
 
 
 
@@ -158,7 +173,7 @@
   - `value`: 要格式化的数值。
   - `format_text`: 指定数值的格式，例如日期或时间格式。
 
-##### XLOOKUP函数
+##### XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found], [match_mode], [search_mode])
 - **功能**: `XLOOKUP`函数用于搜索一个范围或数组中的某个值，并返回相应的结果数组中的对应项。
 - **参数**:
   - `lookup_value`: 需要查找的值。
@@ -168,13 +183,41 @@
   - `match_mode`: 可选参数，指定匹配的类型（如精确匹配或近似匹配）。
   - `search_mode`: 可选参数，指定搜索的方向（如从头开始或从尾开始搜索）。
 
-##### VALUE函数
+##### VALUE(text)
 - **功能**: `VALUE`函数将包含数字的字符串转换为数字。
 - **参数**:
   - `text`: 需要转换的文本字符串。
 
-##### LEFT函数
+##### LEFT(text, num_chars)
 - **功能**: `LEFT`函数从文本字符串的开始位置返回指定数量的字符。
 - **参数**:
   - `text`: 需要从中提取字符的文本。
   - `num_chars`: 可选参数，指定需要返回的字符数。如果省略此参数，默认为1。
+
+##### ISNUMBER(value)
+- **功能**: `ISNUMBER` 函数用于检查给定的值是否为数值。
+- **参数**:
+  - `value`: 需要检查的值或表达式。
+
+##### FIND(find_text, within_text, [start_num])
+- **功能**: `FIND` 函数用于在文本字符串中查找一个子字符串，并返回子字符串的起始位置数值。如果找不到子字符串，将返回错误。
+- **参数**:
+  - `find_text`: 需要查找的子字符串。
+  - `within_text`: 被搜索的文本字符串。
+  - `start_num`: 可选参数，指定开始搜索的位置。
+
+##### INDEX(array, row_num, [column_num], [area_num])
+- **功能**: `INDEX` 函数返回数组中特定位置的值。
+- **参数**:
+  - `array`: 一个范围或数组。
+  - `row_num`: 选取数组中的行号。
+  - `column_num`: 可选参数，选取数组中的列号。
+
+##### MATCH(lookup_value, lookup_array, [match_type])
+- **功能**: `MATCH` 函数用于查找指定项在数组中的位置。
+- **参数**:
+  - `lookup_value`: 需要匹配的值。
+  - `lookup_array`: 用于搜索的数组或范围。
+  - `match_type`: 可选参数，指定匹配的类型（如精确匹配0、向下最近匹配1、向上最近匹配-1）。
+
+

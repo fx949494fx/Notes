@@ -35,7 +35,9 @@
 使用Excel的`IFERROR`和`TEXT`函数组合可以将单元格中的日期和时间统一格式化，并在转换出错时返回原始单元格的内容。这对于处理可能不符合日期格式的数据或错误输入非常有用，可以确保数据的整洁性和一致性。
 ```excel
 首先使用函数：
+
 =IFERROR(TEXT(A2,"yyyy/mm/dd hh:MM:ss"),A2)
+
 第二步使用功能：分列-日期-YMD
 ```
 - [`TEXT(A2, "yyyy/mm/dd hh:MM:ss")`](#textvalue-format_text): 尝试将单元格A2中的值按照"yyyy/mm/dd hh:MM:ss"的格式（年/月/日 时:分:秒）转换为文本。
@@ -45,32 +47,42 @@
 使用Excel函数XLOOKUP, VALUE, 和LEFT，可以分步从地区编码中提取出乡镇街道、县区、地级市的中文名称。
 ```excel
 # 提取乡镇街道中文
+
 =XLOOKUP(A2, '[地区编码对照表.xlsx]地区信息'!$A:$A, '[地区编码对照表.xlsx]地区信息'!$B:$B, "")
+
 # 提取县区街道中文
+
 =XLOOKUP(VALUE(LEFT(A2,6)), '[地区编码对照表.xlsx]地区信息'!$K:$K, '[地区编码对照表.xlsx]地区信息'!$L:$L, "")
+
 # 提取地级市中文
+
 =XLOOKUP(VALUE(LEFT(A2,4)), '[地区编码对照表.xlsx]地区信息'!$M:$M, '[地区编码对照表.xlsx]地区信息'!$N:$N, "")
 ```
 - A2: 单元格A2中包含地区9位完整编码。
-- [`XLOOKUP`](#xlookup)的查找列: 包含地区编码的列。返回列: 包含县区名称的列。默认值: 如果查找失败，返回空字符串。
-- [`LEFT`](#left)从完整地区编码中提取前6位，通常这6位代表地级市级别的编码。
-- [`VALUE`](#value)将字符转换为数值，以便和《地区编码对照表》中的编码格式一致。
+- [`XLOOKUP`](#xlookuplookup_value-lookup_array-return_array-if_not_found-match_mode-search_mode)的查找列: 包含地区编码的列。返回列: 包含县区名称的列。默认值: 如果查找失败，返回空字符串。
+- [`LEFT`](#lefttext-num_chars)从完整地区编码中提取前6位，通常这6位代表地级市级别的编码。
+- [`VALUE`](#valuetext)将字符转换为数值，以便和《地区编码对照表》中的编码格式一致。
 
 ### 中文地址进行省市县乡四级地址分词的流程
 使用Excel的INDEX, MATCH, ISNUMBER, FIND 和 IF 函数组合，可以从不规则的中文地址中有效地提取省、市、县和乡镇四级地址信息。分词的顺序是先正向从省级-市级-县级-乡镇，然后再利用已有的信息反向查找，从乡镇-县级-市级-省级，最后把同级地址合并到一起。
 ```excel
 # 正向查找省级关键词
+
 =INDEX('[地区编码对照表.xlsx]地区信息'!$O:$O, MATCH(TRUE, ISNUMBER(FIND('[地区编码对照表.xlsx]地区信息'!$O:$O, $A2)), 0))
+
 # 反向利用市级地址查找省级关键词
+
 =INDEX('[地区编码对照表.xlsx]地区信息'!$O:$O, MATCH(TRUE, ISNUMBER(FIND('[地区编码对照表.xlsx]地区信息'!$N:$N, $G2)), 0))
+
 # 然后将正反向的同级地址组合在一起
+
 =IF(B2=0, H2, B2)
 ```
-- [`FIND`]:在《地区编码对照表》中 A2（中文地址）或 G2（市级地址） 中搜索省级关键词，如果找到，则返回其位置，否则返回错误。
-- [`ISNUMBER`]: 随后检查 FIND 的输出是否为数值（即是否成功找到关键词），从而为 MATCH 函数提供逻辑测试。
-- [`MATCH`]：判断ISNUMBER是否返回了TRUE，即使用FIND是否在A2或G2中发现包含省级关键词，0为精确匹配。
-- [`INDEX`]：MATCH到的行号对应的省级关键词。
-- [`IF`]：如果正向的B2单元格的值为0，则取反向的H2单元格的值；否则，直接使用正向的B2单元格的值。
+- [`FIND`](#findfind_text-within_text-start_num):在《地区编码对照表》中 A2（中文地址）或 G2（市级地址） 中搜索省级关键词，如果找到，则返回其位置，否则返回错误。
+- [`ISNUMBER`](#isnumbervalue): 随后检查 FIND 的输出是否为数值（即是否成功找到关键词），从而为 MATCH 函数提供逻辑测试。
+- [`MATCH`](#matchlookup_value-lookup_array-match_type)：判断ISNUMBER是否返回了TRUE，即使用FIND是否在A2或G2中发现包含省级关键词，0为精确匹配。
+- [`INDEX`](#indexarray-row_num-column_num-area_num)：MATCH到的行号对应的省级关键词。
+- [`IF`](#ifcondition-value_if_true-value_if_false)：如果正向的B2单元格的值为0，则取反向的H2单元格的值；否则，直接使用正向的B2单元格的值。
 
 
 

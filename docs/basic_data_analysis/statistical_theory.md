@@ -8,6 +8,6 @@ Cox比例风险回归模型是队列研究资料中常用分析模型。通常�
 **最简单的方法是仍以随访时间作为尺度的模型作为结果依据，以年龄作为尺度的模型作为敏感性分析。**
 
 ##### 参考文献
-- Li Zhuoying, Shen Qiuming, Tuo Jiayi, Tang Dandan, Xiao Yuxuan, Zhao Longgang, Xiang Yongbing. Choice and application of time scale selection for Cox proportional hazards regression model in cohort studies. Chinese Journal of Epidemiology, 2022, 43(12): 2002-2007.http://dx.doi.org/10.3760/cma.j.cn112338-20220720-00644  
+- 李卓颖, 沈秋明, 拓嘉怡, 等.  队列研究资料分析中Cox比例风险回归模型的时间尺度选择和应用 [J] . 中华流行病学杂志, 2022, 43(12) : 2002-2007. DOI: 10.3760/cma.j.cn112338-20220720-00644  
 - Yangyang Liu, Jingjing Zhang, Toshiharu Mitsuhashi, Toshihiko Matsuo, Takashi Yorifuji, Jun Hamada, 464 Basics of survival analysis: age is not appropriate as time scale in Cox regression model, International Journal of Epidemiology, Volume 50, Issue Supplement_1, September 2021, dyab168.397, https://doi.org/10.1093/ije/dyab168.397  
 - Lamarca R, Alonso J, Gómez G, Muñoz A. Left-truncated data with age as time scale: an alternative for survival analysis in the elderly population. J Gerontol A Biol Sci Med Sci. 1998;53(5):M337-M343.https://doi:10.1093/gerona/53a.5.m337

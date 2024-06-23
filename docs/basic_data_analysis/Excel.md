@@ -45,14 +45,14 @@
   - start_num: 子字符串的开始位置（第一个字符的位置为1）。
   - num_chars: 需要提取的字符数量。
  
-#### IF(condition, value_if_true, value_if_false)
+##### IF(condition, value_if_true, value_if_false)
 - **功能**: 根据条件判断返回不同的结果。
 - **参数**:
   - `condition`: 条件表达式，返回真或假。
   - `value_if_true`: 如果条件为真，则返回此值。
   - `value_if_false`: 如果条件为假，则返回此值。
 
-#### MOD(number, divisor)
+##### MOD(number, divisor)
 - **功能**: 返回两数相除的余数。
 - **参数**:
   - `number`: 被除数，即需要计算余数的数值。
@@ -61,9 +61,9 @@
 # 工作实例的解决方案
 ### 不可见的特殊字符的处理
 常见的不可见特殊字符包括空格、换行符、制表符等。可使用以下函数：
-- [TRIM(text)](https://github.com/fx949494fx/Notes/new/main/docs/basic_data_analysis#trimtext)移除文本两端的空格。
-- [CLEAN(text)](https://github.com/fx949494fx/Notes/new/main/docs/basic_data_analysis#cleantext)移除文本中的不可打印字符。
-- [SUBSTITUTE(text, old_text, new_text, [instance_num])](https://github.com/fx949494fx/Notes/new/main/docs/basic_data_analysis#substitutetext-old_text-new_text-instance_num)替换文本中的某些子字符串。
+- [`TRIM(text)`](#trimtext)移除文本两端的空格。
+- [`CLEAN(text)`](#cleantext)移除文本中的不可打印字符。
+- [`SUBSTITUTE(text, old_text, new_text, [instance_num])`]#substitutetext-old_text-new_text-instance_num)替换文本中的某些子字符串。
  
 ### 提取身份证号中的出生日期
 使用Excel的`MID`函数可以从18位的身份证号中提取出出生日期。适用于需要快速验证或显示出生日期的各种场合。如果在身份证前存在其他字符，需要修改子字符串的开始位置。

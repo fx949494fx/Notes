@@ -148,16 +148,18 @@
 =R2+Y2
 
 # 第2-14步嵌套后即是相邻两条的排重判断
+
 # A列是身份证号，C列是诊断日期，I列是转归，J列是ICD编码
+
 =IF(IF(IF(AND(IF($A2=$A1,1,0)=1,IF(AND(IFERROR(DATEDIF($C1,$C2,"D"),0)>=0,IFERROR(DATEDIF($C1,$C2,"D"),0)<28),1,0)=1),1,0)=1,IF(OR($J2=$J1,IF(AND(LEFT($J1,SEARCH(".",J1&".")-1)="I20",LEFT($J2,SEARCH(".",J2&".")-1)="I20"),IF(AND(OR(ISNUMBER(SEARCH(".1",$J1)),ISNUMBER(SEARCH(".2",$J1))),OR(ISNUMBER(SEARCH(".1",$J2)),ISNUMBER(SEARCH(".2",$J2)))),0,1),0)=1),1,0),0)=0,0,IF(AND(I1="存活",I2="死亡"),0,1))+IF(AND(IF(IF(AND(IF($A2=$A3,1,0)=1,IF(AND(DATEDIF($C2,$C3,"D")>=0,DATEDIF($C2,$C3,"D")<28),1,0)=1),1,0)=1,IF(OR($J2=J3,IF(AND(LEFT($J3,SEARCH(".",J3&".")-1)="I20",LEFT($J2,SEARCH(".",J2&".")-1)="I20"),IF(AND(OR(ISNUMBER(SEARCH(".1",$J3)),ISNUMBER(SEARCH(".2",$J3))),OR(ISNUMBER(SEARCH(".1",$J2)),ISNUMBER(SEARCH(".2",$J2)))),0,1),0)=1),1,0),0)=1,I2="存活",I3="死亡"),1,0)
 ```
-- [`DATEDIF`](#)：用于计算两个诊断日期之间的天数差异，以判断两条记录的日期是否相差28天以内。
+- [`DATEDIF`](#datedifstart_date-end_date-unit)：用于计算两个诊断日期之间的天数差异，以判断两条记录的日期是否相差28天以内。
 - [`IF`](#ifcondition-value_if_true-value_if_false)：在多个步骤中使用，如判断日期差、身份证号是否相同、以及最终的排除逻辑。
-- [`AND`](#)：检查全部给定条件是否全部为真。用于组合多个逻辑条件，如同时满足日期和身份证号相同，才考虑进一步的查重步骤。
+- [`AND`](#andlogical1-logical2-)：检查全部给定条件是否全部为真。用于组合多个逻辑条件，如同时满足日期和身份证号相同，才考虑进一步的查重步骤。
 - [`FIND`](#findfind_text-within_text-start_num)：用于查找诊断编码中是否含有特定的子编码（如".1"或".2"），帮助判断两条记录是否属于同一个I20编码下的不同子编码。
 - [`LEFT`](#lefttext-num_chars)：用于提取诊断编码的主要部分（如I20），忽略其后的子编码部分，以判断主诊断编码是否一致。
 - [`ISNUMBER`](#isnumbervalue)：结合 `FIND` 使用，判断 `FIND` 返回的结果是否为数值，即判断是否成功找到了子编码。
-- [`OR`](#)：检查给定的任一条件是否为真。在判断是否同一编码时使用，如果任一记录含有特定标记，则进一步的判断逻辑会有所不同。
+- [`OR`](#orlogical1-logical2-)：检查给定的任一条件是否为真。在判断是否同一编码时使用，如果任一记录含有特定标记，则进一步的判断逻辑会有所不同。
 
 
 

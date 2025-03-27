@@ -9,3 +9,10 @@
 ### 在Ubuntu下安装R
 1. 根据[R官网](https://mirrors.tuna.tsinghua.edu.cn/CRAN/)介绍的方法安装R。
 2. 安装结束后输入`R`检查是否安装成功。
+
+### 使用Trae作为编程环境的配置
+1. 安装最新版Anaconda和R
+2. 右键R图标，“以管理员身份运行”R GUI，在里面安装需要使用的包。
+3. 首先要安装的是'languageserver'，使用install.packages("languageserver")
+4. 在[Trae](https://www.trae.com.cn/home)下载Trae中国版，按步骤安装。
+5. 在左边栏“插件市场”中安装扩增包R和Python
